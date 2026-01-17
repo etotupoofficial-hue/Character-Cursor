@@ -7,6 +7,7 @@ const micStatus = document.getElementById("micStatus");
 const keyboard = document.getElementById("keyboard");
 const armLeft = document.getElementById("armLeft");
 const armRight = document.getElementById("armRight");
+const mouseDevice = document.getElementById("mouseDevice");
 
 const keys = Array.from(keyboard.querySelectorAll(".key"));
 let audioContext;
@@ -14,8 +15,23 @@ let analyser;
 let dataArray;
 let micStream;
 let mouthAnimation;
+let typingTimer;
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+const updateMouseArm = (percentX, percentY) => {
+  const offsetX = clamp(percentX * 16, -16, 16);
+  const offsetY = clamp(percentY * 10, -10, 10);
+  const rotate = clamp(percentX * 12 - 8, -18, 18);
+  armRight.classList.add("mouse");
+  armRight.style.setProperty("--mouse-x", `${offsetX}px`);
+  armRight.style.setProperty("--mouse-y", `${offsetY}px`);
+  armRight.style.setProperty("--mouse-rot", `${rotate}deg`);
+  if (mouseDevice) {
+    mouseDevice.classList.add("active");
+    setTimeout(() => mouseDevice.classList.remove("active"), 120);
+  }
+};
 
 const updateHead = (x, y) => {
   const { innerWidth, innerHeight } = window;
@@ -30,6 +46,8 @@ const updateHead = (x, y) => {
   const pupilY = clamp(percentY * 6, -6, 6);
   pupilLeft.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
   pupilRight.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+
+  updateMouseArm(percentX, percentY);
 };
 
 const animateMouth = () => {
@@ -96,16 +114,17 @@ window.addEventListener("mousemove", (event) => {
 
 const tapArms = () => {
   armLeft.classList.add("tap");
-  armRight.classList.add("tap");
   setTimeout(() => {
     armLeft.classList.remove("tap");
-    armRight.classList.remove("tap");
   }, 120);
 };
 
 window.addEventListener("keydown", (event) => {
   if (event.repeat) return;
   tapArms();
+  armLeft.classList.add("typing");
+  if (typingTimer) clearTimeout(typingTimer);
+  typingTimer = setTimeout(() => armLeft.classList.remove("typing"), 150);
   const key = event.key.toUpperCase();
   const keyElement = keys.find((element) => element.textContent === key);
   if (keyElement) {
