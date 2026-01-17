@@ -1,0 +1,20 @@
+<svg width="360" height="360" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shirt" x1="90" y1="220" x2="270" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3D4A6B" />
+      <stop offset="1" stop-color="#2A314B" />
+    </linearGradient>
+    <radialGradient id="face" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(140 120) rotate(35) scale(160)">
+      <stop stop-color="#FFE6C1" />
+      <stop offset="1" stop-color="#F0B374" />
+    </radialGradient>
+  </defs>
+  <rect width="360" height="360" rx="36" fill="#1B2236" />
+  <circle cx="180" cy="140" r="96" fill="url(#face)" />
+  <rect x="90" y="210" width="180" height="110" rx="46" fill="url(#shirt)" />
+  <circle cx="130" cy="135" r="18" fill="#FFFFFF" opacity="0.35" />
+  <circle cx="230" cy="135" r="18" fill="#FFFFFF" opacity="0.35" />
+  <path d="M130 180C150 195 210 195 230 180" stroke="#6D2B2B" stroke-width="10" stroke-linecap="round" />
+  <path d="M100 235C70 260 80 300 110 310" stroke="#F0B374" stroke-width="26" stroke-linecap="round" />
+  <path d="M260 235C290 260 280 300 250 310" stroke="#F0B374" stroke-width="26" stroke-linecap="round" />
+</svg>
