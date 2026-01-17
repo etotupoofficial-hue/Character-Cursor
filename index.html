@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursor Character</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="stage">
+      <section class="hud">
+        <h1>Персонаж-курсор</h1>
+        <p>
+          Двигайте мышь — персонаж следит глазами и головой. Печатайте — он нажимает
+          по клавиатуре. Включите микрофон — рот будет двигаться.
+        </p>
+        <div class="controls">
+          <button id="micToggle" class="primary">Включить микрофон</button>
+          <span id="micStatus" class="status">Микрофон выключен</span>
+        </div>
+      </section>
+
+      <section class="character-stage">
+        <div class="character" id="character">
+          <div class="head" id="head">
+            <div class="face">
+              <div class="eye eye-left">
+                <div class="pupil" id="pupilLeft"></div>
+              </div>
+              <div class="eye eye-right">
+                <div class="pupil" id="pupilRight"></div>
+              </div>
+              <div class="mouth" id="mouth"></div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="arm arm-left" id="armLeft"></div>
+            <div class="arm arm-right" id="armRight"></div>
+          </div>
+        </div>
+
+        <div class="keyboard" id="keyboard">
+          <div class="key">Q</div>
+          <div class="key">W</div>
+          <div class="key">E</div>
+          <div class="key">R</div>
+          <div class="key">T</div>
+          <div class="key">Y</div>
+          <div class="key">U</div>
+          <div class="key">I</div>
+          <div class="key">O</div>
+          <div class="key">P</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
