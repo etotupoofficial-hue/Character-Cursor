@@ -18,19 +18,31 @@
           <button id="micToggle" class="primary">Включить микрофон</button>
           <span id="micStatus" class="status">Микрофон выключен</span>
         </div>
+        <p class="hint">
+          Чтобы использовать своего персонажа, замените файл
+          <strong>character.svg</strong> или обновите ссылку на другое изображение.
+        </p>
       </section>
 
       <section class="character-stage">
         <div class="character" id="character">
-          <div class="head" id="head">
-            <div class="face">
-              <div class="eye eye-left">
-                <div class="pupil" id="pupilLeft"></div>
+          <div class="character-visual">
+            <img
+              class="character-image"
+              src="character.svg"
+              alt="Ваш персонаж"
+              id="characterImage"
+            />
+            <div class="head" id="head">
+              <div class="face">
+                <div class="eye eye-left">
+                  <div class="pupil" id="pupilLeft"></div>
+                </div>
+                <div class="eye eye-right">
+                  <div class="pupil" id="pupilRight"></div>
+                </div>
+                <div class="mouth" id="mouth"></div>
               </div>
-              <div class="eye eye-right">
-                <div class="pupil" id="pupilRight"></div>
-              </div>
-              <div class="mouth" id="mouth"></div>
             </div>
           </div>
           <div class="body">

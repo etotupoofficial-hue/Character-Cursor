@@ -40,6 +40,12 @@ body {
   color: #cfd4ff;
 }
 
+.hint {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #9aa7ff;
+}
+
 .controls {
   display: flex;
   align-items: center;
@@ -79,14 +85,30 @@ body {
 
 .character {
   position: relative;
-  width: 220px;
-  height: 260px;
+  width: 260px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.character-visual {
+  position: relative;
+  width: 220px;
+  height: 240px;
+  display: grid;
+  place-items: center;
+}
+
+.character-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.35));
+}
+
 .head {
+  position: absolute;
   width: 160px;
   height: 160px;
   border-radius: 50%;
@@ -156,9 +178,9 @@ body {
 }
 
 .body {
-  width: 160px;
-  height: 90px;
-  margin-top: -12px;
+  width: 180px;
+  height: 96px;
+  margin-top: -16px;
   background: linear-gradient(135deg, #38405f, #2a2f48);
   border-radius: 40px;
   position: relative;
